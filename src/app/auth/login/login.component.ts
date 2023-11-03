@@ -8,6 +8,10 @@ import { UsuarioServiceService } from 'src/app/services/usuario-service.service'
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+
+  public usuario!: string;
+  public password!:string;
+
   public banderaError: boolean = false;
 
   constructor(
@@ -16,25 +20,34 @@ export class LoginComponent {
   ) {}
 
   public login() {
+    this.banderaError = false;
+
     let usuario = new Object({
-      xx: '',
-      xx2: '',
+      correoElectronico: this.usuario,
+      password: this.password,
     });
-    this.usuariosService.login(usuario).subscribe((resupuesta: any) => {
-      if (resupuesta !== null) {
-        this.router.navigate(['/login']);
-      } else {
+    this.usuariosService.login(usuario).subscribe((respuesta: any) => {
+      console.log(respuesta)
+      if (respuesta === null) {
         this.banderaError = true;
+        return;
       }
+      if (respuesta.respuesta === false) {
+        this.banderaError = true;
+        return;
+      }
+      this.redirect(respuesta);
     });
   }
 
   private redirect(usuario: any) {
-    switch (usuario.rol) {
-      case 'administrador':
+    console.log(usuario )
+    switch (usuario.usuarioEncontrado.rol) {
+      case 'Administrador':
         this.router.navigate(['/menuAdmin']);
         break;
-      case 'emppleado':
+      case 'Empleado':
+        console.log("entro")
         this.router.navigate(['/menuEmpleado']);
         break;
     }

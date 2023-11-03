@@ -7,7 +7,7 @@
         <div class="right">
             <div class="form">
                 <div class="wave-group">
-                    <input required="" type="text" class="input">
+                    <input required="" type="text" class="input" [(ngModel)]="usuario">
                     <span class="bar"></span>
                     <label class="label">
                         <span class="label-char" style="--index: 0">U</span>
@@ -20,7 +20,7 @@
                     </label>
                 </div>
                 <div class="wave-group">
-                    <input required="" type="text" class="input">
+                    <input required="" type="text" class="input" [(ngModel)]="password">
                     <span class="bar"></span>
                     <label class="label">
                         <span class="label-char" style="--index: 0">C</span>
@@ -39,8 +39,8 @@
                     <span>Entrar</span>
                 </button>
 
-                <div class="mensaje-error" *ngIf="banderaError">
-                    <p>Erorr en la mierda de login</p>
+                <div class="mensaje-error" [hidden]="!banderaError">
+                    <p>Credenciales incorrectas</p>
                 </div>
             </div>
         </div>

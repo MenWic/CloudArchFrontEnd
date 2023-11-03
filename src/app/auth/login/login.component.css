@@ -163,3 +163,9 @@ button:hover::before {
 }
 
 
+.mensaje-error{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
