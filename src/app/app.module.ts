@@ -4,29 +4,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
-import { HttpClientModule } from  '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { EmployeeTopNavbarComponent } from './employee/employee-top-navbar/employee-top-navbar.component';
-import { AdminTopNavbarComponent } from './admin/admin-top-navbar/admin-top-navbar.component';
-import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
-import { EmployeeHomeComponent } from './employee/employee-home/employee-home.component';
-import { EmployeeViewComponent } from './employee/employee-view/employee-view.component';
-import { AdminViewComponent } from './admin/admin-view/admin-view.component';
-import { FileCardComponent } from './components/file-card/file-card.component';
-import { DirCardComponent } from './components/dir-card/dir-card.component';
-import { NewEmployeeFormComponent } from './components/new-employee-form/new-employee-form.component';
-import { CreateFileComponent } from './components/create-file/create-file.component';
-import { EditFileComponent } from './components/edit-file/edit-file.component';
-import { ShareFileComponent } from './components/share-file/share-file.component';
-import { SharedComponent } from './components/shared/shared.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { CreateDirComponent } from './components/create-dir/create-dir.component';
-import { MoveFileComponent } from './components/move-file/move-file.component';
-import { MoveDirComponent } from './components/move-dir/move-dir.component';
-import { CreateEmployeeComponent } from './admin/create-employee/create-employee.component';
-import { TrashComponent } from './admin/trash/trash.component';
-import { SharedFileCardComponent } from './components/shared-file-card/shared-file-card.component';
-import { SharedDirCardComponent } from './components/shared-dir-card/shared-dir-card.component';
+
+import { EmployeeTopNavbarComponent } from './models/employee/employee-top-navbar/employee-top-navbar.component';
+import { AdminTopNavbarComponent } from './models/admin/admin-top-navbar/admin-top-navbar.component';
+import { AdminHomeComponent } from './models/admin/admin-home/admin-home.component';
+import { EmployeeHomeComponent } from './models/employee/employee-home/employee-home.component';
+import { EmployeeViewComponent } from './models/employee/employee-view/employee-view.component';
+import { AdminViewComponent } from './models/admin/admin-view/admin-view.component';
+
+import { FileCardComponent } from './models/objects/file-card/file-card.component';
+import { DirCardComponent } from './models/objects/dir-card/dir-card.component';
+import { SharedFileCardComponent } from './models/objects/shared-file-card/shared-file-card.component';
+import { SharedDirCardComponent } from './models/objects/shared-dir-card/shared-dir-card.component';
+import { TrashFileCardComponent } from './models/objects/trash-file-card/trash-file-card.component';
+import { TrashDirCardComponent } from './models/objects/trash-dir-card/trash-dir-card.component';
+
+import { CreateFileComponent } from './controllers/file/create-file/create-file.component';
+import { EditFileComponent } from './controllers/file/edit-file/edit-file.component';
+import { ShareFileComponent } from './controllers/file/share-file/share-file.component';
+import { MoveFileComponent } from './controllers/file/move-file/move-file.component';
+
+import { CreateDirComponent } from './controllers/dir/create-dir/create-dir.component';
+import { MoveDirComponent } from './controllers/dir/move-dir/move-dir.component';
+
+import { TrashHomeComponent } from './controllers/trash/trash-home/trash-home.component';
+import { ChangePasswordComponent } from './controllers/profile/change-password/change-password.component';
+import { SharedHomeComponent } from './controllers/shared/shared-home/shared-home.component';
 
 @NgModule({
   declarations: [
@@ -38,29 +43,28 @@ import { SharedDirCardComponent } from './components/shared-dir-card/shared-dir-
     EmployeeHomeComponent,
     EmployeeViewComponent,
     AdminViewComponent,
+
     FileCardComponent,
     DirCardComponent,
-    NewEmployeeFormComponent,
+    SharedFileCardComponent,
+    SharedDirCardComponent,
+    TrashFileCardComponent,
+    TrashDirCardComponent,
+
     CreateFileComponent,
     EditFileComponent,
     ShareFileComponent,
-    SharedComponent,
-    ProfileComponent,
-    CreateDirComponent,
     MoveFileComponent,
+
+    CreateDirComponent,
     MoveDirComponent,
-    CreateEmployeeComponent,
-    TrashComponent,
-    SharedFileCardComponent,
-    SharedDirCardComponent,
+
+    TrashHomeComponent,
+    ChangePasswordComponent,
+    SharedHomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule ,
-    FormsModule 
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
