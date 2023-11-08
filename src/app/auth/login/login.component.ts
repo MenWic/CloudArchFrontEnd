@@ -8,9 +8,8 @@ import { UsuarioServiceService } from 'src/app/services/usuario-service.service'
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-
   public usuario!: string;
-  public password!:string;
+  public password!: string;
 
   public banderaError: boolean = false;
 
@@ -27,7 +26,7 @@ export class LoginComponent {
       password: this.password,
     });
     this.usuariosService.login(usuario).subscribe((respuesta: any) => {
-      console.log(respuesta)
+      console.log(respuesta);
       if (respuesta === null) {
         this.banderaError = true;
         return;
@@ -41,14 +40,14 @@ export class LoginComponent {
   }
 
   private redirect(usuario: any) {
-    console.log(usuario )
+    console.log(usuario);
     switch (usuario.usuarioEncontrado.rol) {
       case 'Administrador':
-        this.router.navigate(['/menuAdmin']);
+        this.router.navigate(['/adminMenu/adminHome/null']);
         break;
       case 'Empleado':
-        console.log("entro")
-        this.router.navigate(['/menuEmpleado']);
+        console.log('entro');
+        this.router.navigate(['/employeeMenu/employeeHome/null']);
         break;
     }
   }
