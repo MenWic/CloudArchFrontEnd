@@ -1,1 +1,27 @@
-<p>edit-file works!</p>
+<div class="container">
+    <div class="box form-box">
+        <header>Editar Archivo</header>
+        
+        <form action="" method="post">
+            <div class="field input">
+                <label for="name">Nombre de Archivo</label>
+                <input type="text" name="name" id="name" autocomplete="off" required>
+            </div>
+            <div class="field input">
+                <label for="format">Formato</label>
+                <select type="text" name="format" id="format" autocomplete="off" required>
+                    <option value="value1">.txt</option>
+                    <option value="value2">.html</option>
+                </select>
+            </div>
+            <div class="field input">
+                <label for="text">Texto</label>
+                <textarea type="text" name="text" id="text" autocomplete="off" rows="10" cols="100"></textarea>
+            </div>
+            <div class="field">
+                <input type="submit" class="btn" name="submit" value="Guardar" required>
+            </div>
+        </form>
+
+    </div>
+</div>

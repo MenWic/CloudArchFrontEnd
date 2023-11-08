@@ -32,6 +32,7 @@ import { MoveDirComponent } from './controllers/dir/move-dir/move-dir.component'
 import { TrashHomeComponent } from './controllers/trash/trash-home/trash-home.component';
 import { ChangePasswordComponent } from './controllers/profile/change-password/change-password.component';
 import { SharedHomeComponent } from './controllers/shared/shared-home/shared-home.component';
+import { HomeOptionsComponent } from './models/objects/home-options/home-options.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { SharedHomeComponent } from './controllers/shared/shared-home/shared-hom
     TrashHomeComponent,
     ChangePasswordComponent,
     SharedHomeComponent,
+    HomeOptionsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
