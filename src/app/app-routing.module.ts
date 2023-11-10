@@ -32,7 +32,7 @@ const routes: Routes = [
     path: 'adminMenu',
     component: AdminViewComponent,
     children: [
-      { path: 'adminHome/:idCarpeta', component: AdminHomeComponent }, //Archivos y Carpetas en raiz
+      { path: 'home/:idCarpeta', component: AdminHomeComponent }, //Archivos y Carpetas en raiz
       { path: 'crearArchivo/:idCarpetaPadre', component: CreateFileComponent }, //Form de creacion
       { path: 'editarArchivo/:idArchivo', component: EditFileComponent }, //Form de edicion
       { path: 'moverArchivo/:idRutaActual', component: MoveFileComponent }, //Form para movimiento

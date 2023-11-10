@@ -1,11 +1,20 @@
 <div class="button-bar">
-
+    <button class="boton-carpeta" (click)="regresar()">
+        Regresar
+    </button>
     <button class="boton-carpeta" (click)="toCrearArchivo()">
         Crear nueva carpeta
-     </button>
-     <button class="boton-archivo"  (click)="toCrearCarpeta()">
+    </button>
+    <button class="boton-archivo" (click)="toCrearCarpeta()">
         Crear nuevo archivo
-     </button>
+    </button>
+
+
+</div>
+
+<div class="tablero">
+    <app-dir-card *ngFor="let carpeta of carpetasDeCarpeta" [infoCarta] = "carpeta" (verCarpetaEvent)="navegarHaciaCarpeta($event)"></app-dir-card>
+    <app-file-card *ngFor="let archivo of archivosDeCarpeta" [infoCarta] = "archivo" ></app-file-card>
 </div>
 
 <router-outlet></router-outlet>

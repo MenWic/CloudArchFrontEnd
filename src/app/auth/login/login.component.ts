@@ -47,11 +47,11 @@ export class LoginComponent {
     console.log(usuario);
     switch (usuario.usuarioEncontrado.rol) {
       case 'Administrador':
-        this.router.navigate(['/adminMenu/adminHome/null']);
+        this.router.navigate(['/adminMenu/home/raiz']);
         break;
       case 'Empleado':
         console.log('entro');
-        this.router.navigate(['/employeeMenu/employeeHome/null']);
+        this.router.navigate(['/employeeMenu/home/raiz']);
         break;
     }
   }

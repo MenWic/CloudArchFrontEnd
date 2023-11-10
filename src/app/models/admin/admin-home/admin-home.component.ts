@@ -11,7 +11,12 @@ import { FileServiceService } from 'src/app/services/file-service.service';
 })
 export class AdminHomeComponent implements OnInit {
   private idCarpeta: string = '';
+
+
+  public carpetaActual: any;
+
   public carpetasDeCarpeta: any[] = [];
+  public archivosDeCarpeta: any[] = [];
 
   constructor(
     private ruta: ActivatedRoute,
@@ -22,7 +27,7 @@ export class AdminHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.idCarpeta = this.ruta.snapshot.params['idCarpeta']; //traer la carpeta padre
+    this.idCarpeta = 'raiz';
     this.mostrarArchivosYCarpetas(); //mostrar los archivos y las carpetas de la carpeta padre
   }
 
@@ -31,7 +36,19 @@ export class AdminHomeComponent implements OnInit {
     this.mostrarArchivos();
   }
 
-  private mostrarArchivos() {}
+  /**
+   * obtiene el usuario con el cookiesService
+   * Utiliza el fileService para mandar a traer los archivos de la carpeta
+   */
+  private mostrarArchivos() {
+    let usuario = this.cookiesService.get('usuario');
+    this.fileService
+      .mostrarArchivosDeCarpeta(this.idCarpeta, usuario)
+      .subscribe((archivos: any) => {
+        console.log(archivos);
+        this.archivosDeCarpeta = archivos;
+      });
+  }
 
   /**
    * obtiene el usuario con el cookiesService
@@ -53,5 +70,26 @@ export class AdminHomeComponent implements OnInit {
 
   public toCrearCarpeta() {
     this.router.navigate(['/adminMenu/adminHome/null']);
+  }
+
+  public navegarHaciaCarpeta(objeto: any) {
+    this.idCarpeta = objeto.id_carpeta;
+
+    if (objeto.id_carpeta !== "raiz") {
+      this.dirService
+        .traerCarpetaPorId(objeto.id_carpeta)
+        .subscribe((carpeta: any) => {
+          this.carpetaActual = carpeta;
+        });
+    }
+
+    this.mostrarArchivosYCarpetas();
+  }
+
+  public regresar() {
+    let datos = new Object({
+      id_carpeta: this.carpetaActual.carpeta_raiz_id,
+    });
+    this.navegarHaciaCarpeta(datos);
   }
 }

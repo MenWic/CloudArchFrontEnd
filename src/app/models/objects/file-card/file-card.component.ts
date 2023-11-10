@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-file-card',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./file-card.component.css']
 })
 export class FileCardComponent {
+  @Input() infoCarta: any;
 
+public verArchivo(){
+  
+}
 }

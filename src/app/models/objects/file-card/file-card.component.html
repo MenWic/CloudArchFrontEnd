@@ -2,9 +2,10 @@
     <div class="card-border-top"></div>
     <div class="img-bg"></div>
     <img class="" src="">
-    <span> Archivo </span>
+    <span> Archivo: {{infoCarta.nombre + infoCarta.extension}} </span>
 
     <div class="buttons">
+        <button (click)="verArchivo()"> Ver </button>
         <button> Copiar </button>
         <button> Mover </button>
         <button> Editar </button>
