@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -30,7 +30,14 @@ export class FileServiceService {
     return this.http.delete(`${this.url}/copiarArchivo`, file);
   }
 
-  public mostrarArchivosDeCarpeta(file: any): Observable<any> {
-    return this.http.get(`${this.url}/mostrarArchivosDeCarpeta`, file);
+  public mostrarArchivosDeCarpeta(file: any, usuario: any): Observable<any> {
+    // Crear un objeto HttpParams para los parámetros
+    let params = new HttpParams()
+      .set('_id', file)
+      .set('usuario_propietario', usuario);
+
+    return this.http.get(`${this.url}/mostarArchivosDeCarpeta`, {
+      params: params,
+    });
   }
 }
