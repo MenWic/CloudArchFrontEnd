@@ -21,10 +21,11 @@ export class DirServiceService {
    * Envia un get al back para traer las carpetas de una carpeta por medio de _id y usuario_propietario
    * @param idCarpeta se envia como param _id y representa el id de la carpeta a la cual queremos acceder
    * @param usuario se envia como param usuario_propietario y representa el usuario propietario de la carpeta a la cual queremos acceder
-   * @returns 
+   * @returns
    */
+  
   public mostarCarpetasDeCarpeta(
-    idCarpeta: any, 
+    idCarpeta: any,
     usuario: any
   ): Observable<any> {
     // Crear un objeto HttpParams para los parámetros

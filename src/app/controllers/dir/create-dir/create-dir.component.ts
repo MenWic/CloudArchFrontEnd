@@ -6,17 +6,18 @@ import { DirServiceService } from 'src/app/services/dir-service.service';
 @Component({
   selector: 'app-create-dir',
   templateUrl: './create-dir.component.html',
-  styleUrls: ['./create-dir.component.css']
+  styleUrls: ['./create-dir.component.css'],
 })
 export class CreateDirComponent {
   public banderaError: boolean = false;
   public banderaConfig: boolean = false;
-  public mensaje: string = "";
+  public mensaje: string = '';
 
   public carpeta_raiz_id!: string;
   public nombre!: string;
   public usuario_propietario!: String;
 
+  //Constructor
   constructor(
     private dirService: DirServiceService,
     private router: Router,
@@ -24,16 +25,18 @@ export class CreateDirComponent {
     private ruta: ActivatedRoute
   ) {}
 
-  public crearDirectorio(){
+  //Funciones
+  
+  public crearDirectorio() {
     this.banderaError = false;
 
     let dir = new Object({
       carpeta_raiz_id: this.ruta.snapshot.params['idCarpetaPadre'],
       nombre: this.nombre,
-      usuario_propietario: this.cookieService.get('usuario')
+      usuario_propietario: this.cookieService.get('usuario'),
     });
 
-    this.dirService.crearCarpeta(dir).subscribe((respuesta: any) =>{
+    this.dirService.crearCarpeta(dir).subscribe((respuesta: any) => {
       console.log(respuesta);
 
       //Evaluamos si el objeto respuesta es null
@@ -56,7 +59,6 @@ export class CreateDirComponent {
         'usuario',
         respuesta.usuarioEncontrado.correoElectronico
       );
-
     });
   }
 }
