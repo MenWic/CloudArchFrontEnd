@@ -5,18 +5,18 @@
         <form action="" method="post">
             <div class="field input">
                 <label for="name">Nombre de Archivo</label>
-                <input type="text" name="name" id="name" autocomplete="off" required>
+                <input type="text" name="name" id="name" autocomplete="off" required [(ngModel)]="nombre">
             </div>
             <div class="field input">
                 <label for="format">Formato</label>
-                <select type="text" name="format" id="format" autocomplete="off" required>
+                <select type="text" name="format" id="format" autocomplete="off" required [(ngModel)]="extension">
                     <option value="value1">.txt</option>
                     <option value="value2">.html</option>
                 </select>
             </div>
             <div class="field input">
                 <label for="text">Texto</label>
-                <textarea type="text" name="text" id="text" autocomplete="off" rows="10" cols="100"></textarea>
+                <textarea type="text" name="text" id="text" autocomplete="off" rows="10" cols="100" [(ngModel)]="contenido"></textarea>
             </div>
             <div class="field">
                 <input type="submit" class="btn" name="submit" value="Crear" required>
@@ -25,3 +25,14 @@
 
     </div>
 </div>
+
+<! Mensaje de Creacion (desde Backend) >
+<div class="mensaje-aprob" [hidden]="!banderaConfig" >
+    {{mensaje}}
+</div>"
+
+<! Mensaje de Error (desde Backend) >
+<div class="mensaje-error" [hidden]="!banderaError" >
+    {{mensaje}}
+</div>"
+

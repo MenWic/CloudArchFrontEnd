@@ -32,14 +32,14 @@ const routes: Routes = [
     path: 'adminMenu',
     component: AdminViewComponent,
     children: [
-      { path: 'adminHome/:variable', component: AdminHomeComponent }, //Archivos y Carpetas en raiz
-      { path: 'crearArchivo/:variable', component: CreateFileComponent }, //Form de creacion
-      { path: 'editarArchivo/:variable', component: EditFileComponent }, //Form de edicion
-      { path: 'moverArchivo/:variable', component: MoveFileComponent }, //Form para movimiento
-      { path: 'compartirArchivo/:variable', component: ShareFileComponent }, //Form para compartir
-      { path: 'crearCarpeta/:variable', component: CreateDirComponent }, //Form de creacion
-      { path: 'moverCarpeta/:variable', component: MoveDirComponent }, //Form para movimiento
-      { path: 'perfil', component: ChangePasswordComponent }, //Form patra actualizacion
+      { path: 'adminHome/:idCarpeta', component: AdminHomeComponent }, //Archivos y Carpetas en raiz
+      { path: 'crearArchivo/:idCarpetaPadre', component: CreateFileComponent }, //Form de creacion
+      { path: 'editarArchivo/:idArchivo', component: EditFileComponent }, //Form de edicion
+      { path: 'moverArchivo/:idRutaActual', component: MoveFileComponent }, //Form para movimiento
+      { path: 'compartirArchivo/:idArchivo', component: ShareFileComponent }, //Form para compartir
+      { path: 'crearCarpeta/:idRutaPadre', component: CreateDirComponent }, //Form de creacion
+      { path: 'moverCarpeta/:idCarpetaActual', component: MoveDirComponent }, //Form para movimiento
+      { path: 'cambiarPerfil/:idUsuario', component: ChangePasswordComponent }, //Form patra actualizacion
       { path: 'compartidos', component: SharedHomeComponent }, //Archivos y Carpetas recibidos
       { path: 'crearEmpleado', component: CreateEmployeeComponent }, //Form de creacion
       { path: 'papelera', component: TrashHomeComponent }, //Archivos y Carpetas eliminados

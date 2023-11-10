@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { UsuarioServiceService } from 'src/app/services/usuario-service.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginComponent {
 
   constructor(
     private usuariosService: UsuarioServiceService,
-    private router: Router
+    private router: Router,
+    private cookieService:CookieService
   ) {}
 
   public login() {
@@ -25,6 +27,7 @@ export class LoginComponent {
       correoElectronico: this.usuario,
       password: this.password,
     });
+
     this.usuariosService.login(usuario).subscribe((respuesta: any) => {
       console.log(respuesta);
       if (respuesta === null) {
@@ -35,6 +38,7 @@ export class LoginComponent {
         this.banderaError = true;
         return;
       }
+      this.cookieService.set("usuario", respuesta.usuarioEncontrado.correoElectronico);
       this.redirect(respuesta);
     });
   }
