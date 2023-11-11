@@ -32,27 +32,29 @@ export class FileCardComponent implements OnInit {
     this.navegarService.navegar(`verArchivo/${this.infoCarta._id}/noTrash`);
   }
 
-  public copiarArchivo() {
-    this.fileService
-      .copiarArchivo(this.infoCarta)
-      .subscribe((respuesta: any) => {
-        if (respuesta.respuesta) {
-        } else {
-          alert(respuesta.motivo);
-        }
-      });
-    this.refreshEvent.emit();
+  public editarArchivo() {
+    this.navegarService.navegar(`editarArchivo/${this.infoCarta._id}`);
   }
 
-  public eliminar() {
-    this.fileService
-      .eliminarArchivo(this.infoCarta)
-      .subscribe((respuesta: any) => {
-        if (respuesta.respuesta) {
-        } else {
-          alert(respuesta.motivo);
-        }
-      });
-    this.refreshEvent.emit();
+  public copiarArchivo() {
+    this.fileService.copiarArchivo(this.infoCarta).subscribe((respuesta: any) => {
+      if (respuesta.respuesta) {
+      } else {
+        alert(respuesta.motivo);
+      }
+      this.refreshEvent.emit();
+    });
+
+  }
+
+  public eliminarArchivo() {
+    this.fileService.eliminarArchivo(this.infoCarta).subscribe((respuesta: any) => {
+      if (respuesta.respuesta) {
+      } else {
+        alert(respuesta.motivo);
+      }
+      this.refreshEvent.emit();
+    });
+    
   }
 }

@@ -5,21 +5,21 @@
         <form action="" method="post">
             <div class="field input">
                 <label for="name">Nombre de Archivo</label>
-                <input type="text" name="name" id="name" autocomplete="off" required>
+                <input type="text" name="name" id="name" autocomplete="off" required [(ngModel)]="nombre">
             </div>
             <div class="field input">
                 <label for="format">Formato</label>
-                <select type="text" name="format" id="format" autocomplete="off" required>
-                    <option value="value1">.txt</option>
-                    <option value="value2">.html</option>
+                <select type="text" name="format" id="format" autocomplete="off" required [(ngModel)]="extension">
+                    <option value=".txt">.txt</option>
+                    <option value=".html">.html</option>
                 </select>
             </div>
             <div class="field input">
                 <label for="text">Texto</label>
-                <textarea type="text" name="text" id="text" autocomplete="off" rows="10" cols="100"></textarea>
+                <textarea type="text" name="text" id="text" autocomplete="off" rows="10" cols="100" [(ngModel)]="contenido"></textarea>
             </div>
             <div class="field">
-                <input type="submit" class="btn" name="submit" value="Guardar" required>
+                <input (click)="editarArhivo()" type="submit" class="btn" name="submit" value="Guardar" required>
             </div>
         </form>
 
