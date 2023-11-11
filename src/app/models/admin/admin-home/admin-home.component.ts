@@ -11,13 +11,14 @@ import { FileServiceService } from 'src/app/services/file-service.service';
 })
 export class AdminHomeComponent implements OnInit {
   private idCarpeta: string = '';
-
+  //private idCarpetaPadre: string = '';
 
   public carpetaActual: any;
 
   public carpetasDeCarpeta: any[] = [];
   public archivosDeCarpeta: any[] = [];
 
+  //Constructor
   constructor(
     private ruta: ActivatedRoute,
     private router: Router,
@@ -31,6 +32,7 @@ export class AdminHomeComponent implements OnInit {
     this.mostrarArchivosYCarpetas(); //mostrar los archivos y las carpetas de la carpeta padre
   }
 
+  //Funciones
   private mostrarArchivosYCarpetas() {
     this.mostrarCarpetas();
     this.mostrarArchivos();
@@ -69,7 +71,7 @@ export class AdminHomeComponent implements OnInit {
   }
 
   public toCrearCarpeta() {
-    this.router.navigate(['/adminMenu/adminHome/null']);
+    this.router.navigate([`/adminMenu/crearCarpeta/${this.idCarpeta}`]);
   }
 
   public navegarHaciaCarpeta(objeto: any) {
