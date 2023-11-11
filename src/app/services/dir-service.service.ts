@@ -22,6 +22,10 @@ export class DirServiceService {
     return this.http.post(`${this.url}/copiarCarpeta`, dir);
   }
 
+  public moverCarpeta(dir: any): Observable<any> {
+    return this.http.post(`${this.url}/moverCarpeta`, dir);
+  }
+
   /**
    * Lanza un post al back para copiar la carpeta indicada
    * @param dir
@@ -63,6 +67,24 @@ export class DirServiceService {
     let params = new HttpParams().set('id', idCarpeta);
 
     return this.http.get(`${this.url}/traerCarpetaPorId`, {
+      params: params,
+    });
+  }
+
+  public mostrarCarpetasDeUsuario(usuario: any): Observable<any> {
+    // Crear un objeto HttpParams para los parámetros
+    let params = new HttpParams().set('usuario_propietario', usuario);
+
+    return this.http.get(`${this.url}/mostrarCarpetasDeUsuario`, {
+      params: params,
+    });
+  }
+
+  public mostrarPathDeCarpeta(idCarpeta: any): Observable<any> {
+    // Crear un objeto HttpParams para los parámetros
+    let params = new HttpParams().set('id', idCarpeta);
+
+    return this.http.get(`${this.url}/mostrarPathDeCarpeta`, {
       params: params,
     });
   }
