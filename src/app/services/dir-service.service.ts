@@ -37,6 +37,7 @@ export class DirServiceService {
    * @param usuario se envia como param usuario_propietario y representa el usuario propietario de la carpeta a la cual queremos acceder
    * @returns
    */
+  
   public mostarCarpetasDeCarpeta(
     idCarpeta: any,
     usuario: any

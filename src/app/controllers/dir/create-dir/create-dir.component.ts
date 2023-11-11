@@ -8,10 +8,22 @@ import { DirServiceService } from 'src/app/services/dir-service.service';
   templateUrl: './create-dir.component.html',
   styleUrls: ['./create-dir.component.css'],
 })
+<<<<<<< HEAD
 export class CreateDirComponent implements OnInit {
   public nombre: string = '';
   public idCarpeta: string = '';
+=======
+export class CreateDirComponent {
+  public banderaError: boolean = false;
+  public banderaConfig: boolean = false;
+  public mensaje: string = '';
 
+  public carpeta_raiz_id!: string;
+  public nombre!: string;
+  public usuario_propietario!: String;
+>>>>>>> 632d7ce22498fae87e87cd72677e7b209c756049
+
+  //Constructor
   constructor(
     private dirService: DirServiceService,
     private router: Router,
@@ -46,8 +58,18 @@ export class CreateDirComponent implements OnInit {
         return;
       }
 
+<<<<<<< HEAD
       alert(respuesta.motivo);
       this.router.navigate([`/adminMenu/home/${this.idCarpeta}`]);
+=======
+      //Todo esta bien, mandamos bandera:true a html
+      this.banderaConfig = true;
+      this.mensaje = respuesta.motivo; //motivo viene del backend (Correcto o no)
+      this.cookieService.set(
+        'usuario',
+        respuesta.usuarioEncontrado.correoElectronico
+      );
+>>>>>>> 632d7ce22498fae87e87cd72677e7b209c756049
     });
   }
 }
