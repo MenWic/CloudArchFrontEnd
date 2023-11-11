@@ -24,6 +24,7 @@ export class CreateDirComponent implements OnInit {
     this.idCarpeta = this.ruta.snapshot.params['idCarpetaPadre'];
   }
 
+  //Fucniones
   public crearDirectorio() {
     console.log(this.idCarpeta);
     let dir = new Object({
