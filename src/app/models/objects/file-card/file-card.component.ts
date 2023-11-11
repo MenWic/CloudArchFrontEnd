@@ -43,4 +43,16 @@ export class FileCardComponent implements OnInit {
       });
     this.refreshEvent.emit();
   }
+
+  public eliminar() {
+    this.fileService
+      .eliminarArchivo(this.infoCarta)
+      .subscribe((respuesta: any) => {
+        if (respuesta.respuesta) {
+        } else {
+          alert(respuesta.motivo);
+        }
+      });
+    this.refreshEvent.emit();
+  }
 }

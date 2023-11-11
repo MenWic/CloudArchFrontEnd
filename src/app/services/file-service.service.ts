@@ -27,7 +27,7 @@ export class FileServiceService {
   }
 
   public eliminarArchivo(file: any): Observable<any> {
-    return this.http.delete(`${this.url}/copiarArchivo`, file);
+    return this.http.post(`${this.url}/eliminarArchivo`, file);
   }
 
   public mostrarArchivosDeCarpeta(file: any, usuario: any): Observable<any> {
