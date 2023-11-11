@@ -11,6 +11,14 @@ body {
   background: #e4e9f7;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+.datos-compartidos {
+  font-size: 13px;
+}
+
 .container {
   margin: 1.5% 0% 1% 0%;
   display: flex;
@@ -95,14 +103,14 @@ body {
   width: 100%;
 }
 
-.mensaje-aprob{
+.mensaje-aprob {
   padding: 10px;
   border-radius: 10px;
   background-color: rgb(0, 255, 0);
   color: black;
 }
 
-.mensaje-error{
+.mensaje-error {
   padding: 10px;
   border-radius: 10px;
   background-color: rgb(255, 0, 0);

@@ -1,6 +1,11 @@
 <div class="container">
     <div class="box form-box">
-        <header>Contenido del archivo "{{nombre}}"</header>
+        <header>
+            Contenido del archivo "{{nombre}}"
+            <div class="datos-compartidos" *ngIf="compartido">
+                - Compartido por "{{usuarioQueCompartio}}" el dia {{fechaCompartido}} a las {{horaCompartidos}}
+            </div>
+        </header>
 
         <form action="" method="post">
             <div class="field input">

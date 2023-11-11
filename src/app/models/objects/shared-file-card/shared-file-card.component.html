@@ -1,1 +1,14 @@
-<p>shared-file-card works!</p>
+<div class="card">
+    <div class="card-border-top"></div>
+    <div class="img-bg">
+        <img class="" src="../../../../assets/{{rutaImg}}">
+    </div>
+
+    <span> Archivo: {{infoCarta.nombre + infoCarta.extension}} </span>
+
+    <div class="buttons">
+        <button (click)="irAVerArchivo()"> Ver </button>
+        <button (click)="eliminarArchivo()"> Eliminar </button>
+    </div>
+
+</div>

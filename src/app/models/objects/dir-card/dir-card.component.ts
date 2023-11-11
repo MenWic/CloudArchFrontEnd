@@ -37,8 +37,9 @@ export class DirCardComponent {
         } else {
           alert(respuesta.motivo);
         }
+        this.refreshEvent.emit();
       });
-    this.refreshEvent.emit();
+    
   }
 
   public eliminarCarpeta() {
@@ -47,7 +48,6 @@ export class DirCardComponent {
       .subscribe((respuesta: any) => {
         this.refreshEvent.emit();
       });
-    this.refreshEvent.emit();
   }
 
   public moverCarpeta() {

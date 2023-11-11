@@ -1,1 +1,4 @@
-<p>shared-home works!</p>
+<div class="tablero">
+    <app-shared-file-card *ngFor="let archivo of archivos" [infoCarta]="archivo"
+     (refreshEvent)="mostrarCompartidos()"></app-shared-file-card>
+</div>
