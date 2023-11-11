@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { DirServiceService } from 'src/app/services/dir-service.service';
+import { NavegarService } from 'src/app/services/navegar.service';
 
 @Component({
   selector: 'app-move-dir',
@@ -16,7 +17,8 @@ export class MoveDirComponent implements OnInit {
   constructor(
     private dirService: DirServiceService,
     private cookiesService: CookieService,
-    private ruta: ActivatedRoute
+    private ruta: ActivatedRoute,
+    private navegarServicee: NavegarService
   ) {}
 
   ngOnInit(): void {
@@ -42,22 +44,30 @@ export class MoveDirComponent implements OnInit {
     let usuario = this.cookiesService.get('usuario');
     this.dirService.mostrarCarpetasDeUsuario(usuario).subscribe((res: any) => {
       this.carpetas = res;
+
       for (let carpeta of this.carpetas) {
         this.mostrarPath(carpeta);
       }
+
+      //al final mostrar la raiz
+      this.carpetas.push({ _id: 'raiz', path: 'raiz' });
     });
   }
 
+  /**
+   * Mueve la carpeta al path indicado
+   */
   public moverCarpeta() {
-    console.log('Datos a enviar al backend:', this.carptaOp);
-
     let update = {
       _id: this.idCarpeta,
-      carpeta_raiz_id: this.carptaOp,
+      destino_id: this.carptaOp,
     };
 
     this.dirService.moverCarpeta(update).subscribe((res: any) => {
       alert(res.motivo);
+      if (res.respuesta === true) {
+        this.navegarServicee.navegar(`home/${this.carptaOp}`);
+      }
     });
   }
 }
