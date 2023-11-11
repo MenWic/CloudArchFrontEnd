@@ -42,7 +42,7 @@ const routes: Routes = [
       { path: 'cambiarPerfil/:idUsuario', component: ChangePasswordComponent }, //Form patra actualizacion
       { path: 'compartidos', component: SharedHomeComponent }, //Archivos y Carpetas recibidos
       { path: 'crearEmpleado', component: CreateEmployeeComponent }, //Form de creacion
-      { path: 'papelera', component: TrashHomeComponent }, //Archivos y Carpetas eliminados
+      { path: 'papelera/:idCarpeta', component: TrashHomeComponent }, //Archivos y Carpetas eliminados
     ],
   },
 ];
