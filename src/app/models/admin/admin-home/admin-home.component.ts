@@ -33,7 +33,6 @@ export class AdminHomeComponent implements OnInit {
     this.mostrarArchivosYCarpetas(); //mostrar los archivos y las carpetas de la carpeta padre
   }
 
-<<<<<<< HEAD
   public cargarCarpeta(){
     if (this.idCarpeta  !== "raiz") {
       this.dirService
@@ -45,10 +44,6 @@ export class AdminHomeComponent implements OnInit {
   }
 
   public mostrarArchivosYCarpetas() {
-=======
-  //Funciones
-  private mostrarArchivosYCarpetas() {
->>>>>>> 632d7ce22498fae87e87cd72677e7b209c756049
     this.mostrarCarpetas();
     this.mostrarArchivos();
   }
