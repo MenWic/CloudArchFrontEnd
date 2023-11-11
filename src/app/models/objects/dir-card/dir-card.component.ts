@@ -7,20 +7,18 @@ import { DirServiceService } from 'src/app/services/dir-service.service';
   templateUrl: './dir-card.component.html',
   styleUrls: ['./dir-card.component.css'],
 }) 
-export class DirCardComponent implements OnInit {
-
+export class DirCardComponent {
   @Input() infoCarta: any;
   @Output() verCarpetaEvent = new EventEmitter<Object>();
   @Output() refreshEvent = new EventEmitter<any>();
 
-  constructor(private router: Router, private dirService: DirServiceService){
+  //Constructor
+  constructor(
+    private router: Router,
+    private dirService: DirServiceService
+    ){}
 
-  }
-
-  ngOnInit(): void {
-   
-  }
-
+  //Funciones
   public irAVerCarpeta(){
     let datos = new Object({
       id_carpeta: this.infoCarta._id,

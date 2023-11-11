@@ -34,6 +34,7 @@ import { TrashHomeComponent } from './controllers/trash/trash-home/trash-home.co
 import { ChangePasswordComponent } from './controllers/profile/change-password/change-password.component';
 import { SharedHomeComponent } from './controllers/shared/shared-home/shared-home.component';
 import { HomeOptionsComponent } from './models/objects/home-options/home-options.component';
+import { ShowFileContentComponent } from './controllers/file/show-file-content/show-file-content.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { HomeOptionsComponent } from './models/objects/home-options/home-options
     ChangePasswordComponent,
     SharedHomeComponent,
     HomeOptionsComponent,
+    ShowFileContentComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [CookieService],

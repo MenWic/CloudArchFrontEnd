@@ -39,6 +39,8 @@ export class LoginComponent {
         return;
       }
       this.cookieService.set("usuario", respuesta.usuarioEncontrado.correoElectronico);
+      this.cookieService.set("rol", respuesta.usuarioEncontrado.rol);
+
       this.redirect(respuesta);
     });
   }
