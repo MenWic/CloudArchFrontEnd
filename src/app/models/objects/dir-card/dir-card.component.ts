@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { DirServiceService } from 'src/app/services/dir-service.service';
 
 @Component({
   selector: 'app-dir-card',
@@ -10,8 +11,9 @@ export class DirCardComponent implements OnInit {
 
   @Input() infoCarta: any;
   @Output() verCarpetaEvent = new EventEmitter<Object>();
+  @Output() refreshEvent = new EventEmitter<any>();
 
-  constructor(private router: Router){
+  constructor(private router: Router, private dirService: DirServiceService){
 
   }
 
@@ -29,14 +31,27 @@ export class DirCardComponent implements OnInit {
 
 
   public copiarCarpeta(){
-    window.location.href = `/adminMenu/home/${this.infoCarta._id}`;
+    this.dirService.copiarCarpeta(this.infoCarta).subscribe(
+      (respuesta:any) => {
+        if(respuesta.respuesta){
+        }else{
+          alert(respuesta.motivo)
+        }
+      }
+    );
+    this.refreshEvent.emit();
   }
 
   public eliminarCarpeta(){
-    window.location.href = `/adminMenu/home/${this.infoCarta._id}`;
+    this.dirService.eliminarCarpeta(this.infoCarta).subscribe(
+      (respuesta:any) => {
+        this.refreshEvent.emit();
+      }
+    );
+    this.refreshEvent.emit();
   }
 
   public moverCarpeta(){
-    window.location.href = `/adminMenu/home/${this.infoCarta._id}`;
+    this.refreshEvent.emit();
   }
 }

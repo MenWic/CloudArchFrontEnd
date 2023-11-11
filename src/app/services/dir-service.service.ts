@@ -13,18 +13,32 @@ export class DirServiceService {
     return this.http.post(`${this.url}/crearCarpeta`, dir);
   }
 
-  public editarCrpeta(dir: any): Observable<any> {
-    return this.http.post(`${this.url}/editarCarpeta`, dir);
+  /**
+   * Lanza un post al back para copiar la carpeta indicada
+   * @param dir
+   * @returns
+   */
+  public copiarCarpeta(dir: any): Observable<any> {
+    return this.http.post(`${this.url}/copiarCarpeta`, dir);
+  }
+
+  /**
+   * Lanza un post al back para copiar la carpeta indicada
+   * @param dir
+   * @returns
+   */
+  public eliminarCarpeta(dir: any): Observable<any> {
+    return this.http.post(`${this.url}/eliminarCarpeta`, dir);
   }
 
   /**
    * Envia un get al back para traer las carpetas de una carpeta por medio de _id y usuario_propietario
    * @param idCarpeta se envia como param _id y representa el id de la carpeta a la cual queremos acceder
    * @param usuario se envia como param usuario_propietario y representa el usuario propietario de la carpeta a la cual queremos acceder
-   * @returns 
+   * @returns
    */
   public mostarCarpetasDeCarpeta(
-    idCarpeta: any, 
+    idCarpeta: any,
     usuario: any
   ): Observable<any> {
     // Crear un objeto HttpParams para los parámetros
@@ -37,19 +51,15 @@ export class DirServiceService {
     });
   }
 
-
-   /**
+  /**
    * Envia un get al back para traer las carpetas de una carpeta por medio de _id y usuario_propietario
    * @param idCarpeta se envia como param _id y representa el id de la carpeta a la cual queremos acceder
    * @param usuario se envia como param usuario_propietario y representa el usuario propietario de la carpeta a la cual queremos acceder
-   * @returns 
+   * @returns
    */
-   public traerCarpetaPorId(
-    idCarpeta: any,
-  ): Observable<any> {
+  public traerCarpetaPorId(idCarpeta: any): Observable<any> {
     // Crear un objeto HttpParams para los parámetros
-    let params = new HttpParams()
-      .set('id', idCarpeta);
+    let params = new HttpParams().set('id', idCarpeta);
 
     return this.http.get(`${this.url}/traerCarpetaPorId`, {
       params: params,

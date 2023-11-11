@@ -27,11 +27,22 @@ export class AdminHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.idCarpeta = 'raiz';
+    this.idCarpeta = this.ruta.snapshot.params['idCarpeta'];
+    this.cargarCarpeta();
     this.mostrarArchivosYCarpetas(); //mostrar los archivos y las carpetas de la carpeta padre
   }
 
-  private mostrarArchivosYCarpetas() {
+  public cargarCarpeta(){
+    if (this.idCarpeta  !== "raiz") {
+      this.dirService
+        .traerCarpetaPorId(this.idCarpeta)
+        .subscribe((carpeta: any) => {
+          this.carpetaActual = carpeta;
+        });
+    }
+  }
+
+  public mostrarArchivosYCarpetas() {
     this.mostrarCarpetas();
     this.mostrarArchivos();
   }
@@ -69,20 +80,13 @@ export class AdminHomeComponent implements OnInit {
   }
 
   public toCrearCarpeta() {
-    this.router.navigate(['/adminMenu/adminHome/null']);
+    this.router.navigate([`/adminMenu/crearCarpeta/${this.idCarpeta}`]); //enviamos al formulario de creacion de archivo la carpeta en la que nos encontramos
   }
 
   public navegarHaciaCarpeta(objeto: any) {
     this.idCarpeta = objeto.id_carpeta;
-
-    if (objeto.id_carpeta !== "raiz") {
-      this.dirService
-        .traerCarpetaPorId(objeto.id_carpeta)
-        .subscribe((carpeta: any) => {
-          this.carpetaActual = carpeta;
-        });
-    }
-
+    this.router.navigate([`/adminMenu/home/${this.idCarpeta}`]);
+    this.cargarCarpeta();
     this.mostrarArchivosYCarpetas();
   }
 

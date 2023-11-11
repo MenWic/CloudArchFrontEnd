@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { DirServiceService } from 'src/app/services/dir-service.service';
@@ -6,16 +6,11 @@ import { DirServiceService } from 'src/app/services/dir-service.service';
 @Component({
   selector: 'app-create-dir',
   templateUrl: './create-dir.component.html',
-  styleUrls: ['./create-dir.component.css']
+  styleUrls: ['./create-dir.component.css'],
 })
-export class CreateDirComponent {
-  public banderaError: boolean = false;
-  public banderaConfig: boolean = false;
-  public mensaje: string = "";
-
-  public carpeta_raiz_id!: string;
-  public nombre!: string;
-  public usuario_propietario!: String;
+export class CreateDirComponent implements OnInit {
+  public nombre: string = '';
+  public idCarpeta: string = '';
 
   constructor(
     private dirService: DirServiceService,
@@ -24,39 +19,35 @@ export class CreateDirComponent {
     private ruta: ActivatedRoute
   ) {}
 
-  public crearDirectorio(){
-    this.banderaError = false;
+  ngOnInit(): void {
+    this.idCarpeta = this.ruta.snapshot.params['idCarpetaPadre'];
+  }
 
+  public crearDirectorio() {
+    console.log(this.idCarpeta);
     let dir = new Object({
-      carpeta_raiz_id: this.ruta.snapshot.params['idCarpetaPadre'],
+      carpeta_raiz_id: this.idCarpeta,
       nombre: this.nombre,
-      usuario_propietario: this.cookieService.get('usuario')
+      usuario_propietario: this.cookieService.get('usuario'),
     });
 
-    this.dirService.crearCarpeta(dir).subscribe((respuesta: any) =>{
+    this.dirService.crearCarpeta(dir).subscribe((respuesta: any) => {
       console.log(respuesta);
 
       //Evaluamos si el objeto respuesta es null
       if (respuesta === null) {
-        this.banderaError = true;
+        alert('No se creo con la carpeta');
         return;
       }
 
       //Evaluamos si el atributo respuesta del objeto no es nulo
       if (respuesta.respuesta === false) {
-        this.banderaError = true;
-        this.mensaje = respuesta.motivo;
+        alert('No se creo con la carpeta');
         return;
       }
 
-      //Todo esta bien, mandamos bandera:true a html
-      this.banderaConfig = true;
-      this.mensaje = respuesta.motivo; //motivo viene del backend (Correcto o no)
-      this.cookieService.set(
-        'usuario',
-        respuesta.usuarioEncontrado.correoElectronico
-      );
-
+      alert(respuesta.motivo);
+      this.router.navigate([`/adminMenu/home/${this.idCarpeta}`]);
     });
   }
 }
