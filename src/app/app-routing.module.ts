@@ -38,7 +38,7 @@ const routes: Routes = [
       { path: 'editarArchivo/:idArchivo', component: EditFileComponent }, //Form de edicion
       { path: 'moverArchivo/:idRutaActual', component: MoveFileComponent }, //Form para movimiento
       { path: 'compartirArchivo/:idArchivo', component: ShareFileComponent }, //Form para compartir
-      { path: 'verArchivo/:idArchivo', component: ShowFileContentComponent },
+      { path: 'verArchivo/:idArchivo/:modoVista', component: ShowFileContentComponent },
       { path: 'crearCarpeta/:idCarpetaPadre', component: CreateDirComponent }, //Form de creacion
       { path: 'moverCarpeta/:idCarpetaActual', component: MoveDirComponent }, //Form para movimiento
       { path: 'cambiarPassword', component: ChangePasswordComponent }, //Form patra actualizacion

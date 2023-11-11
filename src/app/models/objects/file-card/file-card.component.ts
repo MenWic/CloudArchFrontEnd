@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { FileServiceService } from 'src/app/services/file-service.service';
 import { NavegarService } from 'src/app/services/navegar.service';
 
@@ -13,6 +12,7 @@ export class FileCardComponent implements OnInit {
   @Output() refreshEvent = new EventEmitter<any>();
 
   public rutaImg = '';
+
   ngOnInit(): void {
     if (this.infoCarta.extension === '.txt') {
       this.rutaImg = 'txt-file.png';
@@ -29,7 +29,7 @@ export class FileCardComponent implements OnInit {
 
   //Funciones
   public irAVerArchivo() {
-    this.navegarService.navegar(`verArchivo/${this.infoCarta._id}`);
+    this.navegarService.navegar(`verArchivo/${this.infoCarta._id}/noTrash`);
   }
 
   public copiarArchivo() {

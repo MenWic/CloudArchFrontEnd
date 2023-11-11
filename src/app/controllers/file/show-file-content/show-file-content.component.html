@@ -1,1 +1,23 @@
-<p>show-file-content works!</p>
+<div class="container">
+    <div class="box form-box">
+        <header>Contenido del archivo "{{nombre}}"</header>
+
+        <form action="" method="post">
+            <div class="field input">
+                <label for="name">Nombre de Archivo</label>
+                <input type="text" name="name" id="name" autocomplete="off" required [(ngModel)]="nombre">
+            </div>
+            <div class="field input">
+                <label for="format">Formato</label>
+                <input type="text" name="ext" id="ext" autocomplete="off" required [(ngModel)]="extension">
+            </div>
+            <div class="field input">
+                <label for="text">Texto</label>
+                <textarea type="text" name="text" id="text" autocomplete="off" rows="10" cols="100"
+                    [(ngModel)]="contenido"></textarea>
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavegarService } from 'src/app/services/navegar.service';
 
 @Component({
   selector: 'app-trash-file-card',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TrashFileCardComponent implements OnInit {
   @Input() infoCarta: any;
   public rutaImg = '';
+
   ngOnInit(): void {
     if (this.infoCarta.extension === '.txt') {
       this.rutaImg = 'txt-file.png';
@@ -16,5 +18,12 @@ export class TrashFileCardComponent implements OnInit {
     }
   }
 
-  public verArchivo() {}
+  //Constructor
+  constructor(
+    private navegarService: NavegarService
+  ) {}
+
+  public irAVerArchivo() {
+    this.navegarService.navegar(`verArchivo/${this.infoCarta._id}/trash`);
+  }
 }
