@@ -17,6 +17,9 @@
   .card .img-bg {
     width: 90px;
     height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #0f928c;
     border-radius: 15px;
     margin: auto;

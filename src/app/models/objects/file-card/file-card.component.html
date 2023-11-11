@@ -1,12 +1,14 @@
 <div class="card">
     <div class="card-border-top"></div>
-    <div class="img-bg"></div>
-    <img class="" src="">
+    <div class="img-bg">
+        <img class="" src="../../../../assets/{{rutaImg}}">
+    </div>
+
     <span> Archivo: {{infoCarta.nombre + infoCarta.extension}} </span>
 
     <div class="buttons">
         <button (click)="verArchivo()"> Ver </button>
-        <button> Copiar </button>
+        <button (click)="copiarArchivo()"> Copiar </button>
         <button> Mover </button>
         <button> Editar </button>
         <button> Eliminar </button>

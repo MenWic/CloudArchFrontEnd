@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { FileServiceService } from 'src/app/services/file-service.service';
 import { TrashDirService } from 'src/app/services/trash-dir.service';
+import { TrashFileService } from 'src/app/services/trash-file.service';
 
 @Component({
   selector: 'app-trash-home',
@@ -22,7 +23,7 @@ export class TrashHomeComponent implements OnInit {
   constructor(
     private ruta: ActivatedRoute,
     private router: Router,
-    private fileService: FileServiceService,
+    private fileService: TrashFileService,
     private dirService: TrashDirService,
     private cookiesService: CookieService
   ) {}
@@ -45,7 +46,7 @@ export class TrashHomeComponent implements OnInit {
 
   public mostrarArchivosYCarpetas() {
     this.mostrarCarpetas();
-    //this.mostrarArchivos();
+    this.mostrarArchivos();
   }
 
   /**
