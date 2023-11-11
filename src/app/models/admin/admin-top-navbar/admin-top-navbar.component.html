@@ -1,13 +1,13 @@
 <div class="nav">
     <div class="logo">
-        <p><a href="">Cloud Arch</a> </p>
+        <p><a [routerLink]="['home/raiz']">Cloud Arch</a> </p>
     </div>
 
     <div class="right-links">
-        <a href="">Empleados</a>
+        <a [routerLink]="['crearEmpleado']">Empleados</a>
         <a href="">Papelera</a>
-        <a href="">Compartidos</a>
-        <a href="">Perfil</a>
-        <a href=""> <button class="btn">Cerrar Sesion</button> </a>
+        <a [routerLink]="['compartidos']">Compartidos</a>
+        <a [routerLink]="['cambiarPassword']">Perfil</a>
+        <a > <button (click)="logout()" class="btn">Cerrar Sesion</button> </a>
     </div>
 </div>
