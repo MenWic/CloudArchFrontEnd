@@ -14,6 +14,7 @@ import { CreateEmployeeComponent } from './controllers/employees/create-employee
 import { TrashHomeComponent } from './controllers/trash/trash-home/trash-home.component';
 import { SharedHomeComponent } from './controllers/shared/shared-home/shared-home.component';
 import { ChangePasswordComponent } from './controllers/profile/change-password/change-password.component';
+import { ShowFileContentComponent } from './controllers/file/show-file-content/show-file-content.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: 'editarArchivo/:idArchivo', component: EditFileComponent }, //Form de edicion
       { path: 'moverArchivo/:idRutaActual', component: MoveFileComponent }, //Form para movimiento
       { path: 'compartirArchivo/:idArchivo', component: ShareFileComponent }, //Form para compartir
+      { path: 'verArchivo/:idArchivo', component: ShowFileContentComponent },
       { path: 'crearCarpeta/:idCarpetaPadre', component: CreateDirComponent }, //Form de creacion
       { path: 'moverCarpeta/:idCarpetaActual', component: MoveDirComponent }, //Form para movimiento
       { path: 'cambiarPassword', component: ChangePasswordComponent }, //Form patra actualizacion

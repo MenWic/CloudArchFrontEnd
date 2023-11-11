@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { FileServiceService } from 'src/app/services/file-service.service';
+import { NavegarService } from 'src/app/services/navegar.service';
 
 @Component({
   selector: 'app-file-card',
@@ -7,7 +9,6 @@ import { FileServiceService } from 'src/app/services/file-service.service';
   styleUrls: ['./file-card.component.css'],
 })
 export class FileCardComponent implements OnInit {
-  
   @Input() infoCarta: any;
   @Output() refreshEvent = new EventEmitter<any>();
 
@@ -20,9 +21,16 @@ export class FileCardComponent implements OnInit {
     }
   }
 
-  constructor(private fileService: FileServiceService) {}
+  //Constructor
+  constructor(
+    private fileService: FileServiceService,
+    private navegarService: NavegarService
+  ) {}
 
-  public verArchivo() {}
+  //Funciones
+  public irAVerArchivo() {
+    this.navegarService.navegar(`verArchivo/${this.infoCarta._id}`);
+  }
 
   public copiarArchivo() {
     this.fileService

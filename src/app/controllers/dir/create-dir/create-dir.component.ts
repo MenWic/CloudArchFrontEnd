@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { DirServiceService } from 'src/app/services/dir-service.service';
+import { NavegarService } from 'src/app/services/navegar.service';
 
 @Component({
   selector: 'app-create-dir',
@@ -14,8 +15,8 @@ export class CreateDirComponent implements OnInit {
 
   //Constructor
   constructor(
+    private navegarService: NavegarService,
     private dirService: DirServiceService,
-    private router: Router,
     private cookieService: CookieService,
     private ruta: ActivatedRoute
   ) {}
@@ -27,6 +28,7 @@ export class CreateDirComponent implements OnInit {
   //Fucniones
   public crearDirectorio() {
     console.log(this.idCarpeta);
+
     let dir = new Object({
       carpeta_raiz_id: this.idCarpeta,
       nombre: this.nombre,
@@ -44,12 +46,12 @@ export class CreateDirComponent implements OnInit {
 
       //Evaluamos si el atributo respuesta del objeto no es nulo
       if (respuesta.respuesta === false) {
-        alert('No se creo con la carpeta');
+        alert('No se creo con la carpeta 2');
         return;
       }
 
       alert(respuesta.motivo);
-      this.router.navigate([`/adminMenu/home/${this.idCarpeta}`]);
+      this.navegarService.navegar(`home/${this.idCarpeta}`);
     });
   }
 }

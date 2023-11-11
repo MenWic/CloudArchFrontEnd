@@ -10,8 +10,8 @@
             <div class="field input">
                 <label for="format">Formato</label>
                 <select type="text" name="format" id="format" autocomplete="off" required [(ngModel)]="extension">
-                    <option value="value1">.txt</option>
-                    <option value="value2">.html</option>
+                    <option value=".txt">.txt</option>
+                    <option value=".html">.html</option>
                 </select>
             </div>
             <div class="field input">
@@ -19,20 +19,10 @@
                 <textarea type="text" name="text" id="text" autocomplete="off" rows="10" cols="100" [(ngModel)]="contenido"></textarea>
             </div>
             <div class="field">
-                <input type="submit" class="btn" name="submit" value="Crear" required>
+                <input (click)="crearArchivo()" type="submit" class="btn" name="submit" value="Crear" required>
             </div>
         </form>
 
     </div>
 </div>
-
-<! Mensaje de Creacion (desde Backend) >
-<div class="mensaje-aprob" [hidden]="!banderaConfig" >
-    {{mensaje}}
-</div>"
-
-<! Mensaje de Error (desde Backend) >
-<div class="mensaje-error" [hidden]="!banderaError" >
-    {{mensaje}}
-</div>"
 

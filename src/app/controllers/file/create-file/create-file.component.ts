@@ -1,32 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FileServiceService } from 'src/app/services/file-service.service';
 import { CookieService } from 'ngx-cookie-service';
+import { NavegarService } from 'src/app/services/navegar.service';
+
 @Component({
   selector: 'app-create-file',
   templateUrl: './create-file.component.html',
   styleUrls: ['./create-file.component.css'],
 })
 export class CreateFileComponent {
-  public banderaError: boolean = false;
-  public banderaConfig: boolean = false;
-  public mensaje: string = '';
+  @Output() refreshEvent = new EventEmitter<any>();
 
-  public carpeta_raiz_id!: string;
-  public nombre!: string;
-  public extension!: string;
-  public contenido!: string;
-  public usuario_propietario!: string;
+  public idCarpeta: string = '';
 
+  public nombre: string = '';
+  public extension: string = '';
+  public contenido: string = '';
+
+  //Constructor
   constructor(
     private fileService: FileServiceService,
-    private router: Router,
+    private navegarService: NavegarService,
     private cookieService: CookieService, //Para obtener el objeto "Usuario" (para mostrar sus atributos en diferente componente)
     private ruta: ActivatedRoute
   ) {}
 
+  ngOnInit(): void {
+    this.idCarpeta = this.ruta.snapshot.params['idCarpetaPadre'];
+  }
+
+  //Funciones
   public crearArchivo() {
-    this.banderaError = false;
+    console.log(this.idCarpeta);
 
     let file = new Object({
       carpeta_raiz_id: this.ruta.snapshot.params['idCarpetaPadre'],
@@ -41,24 +47,18 @@ export class CreateFileComponent {
 
       //Evaluamos si el objeto respuesta es null
       if (respuesta === null) {
-        this.banderaError = true;
+        alert('No se creo el Archivo');
         return;
       }
 
       //Evaluamos si el atributo respuesta del objeto no es nulo
       if (respuesta.respuesta === false) {
-        this.banderaError = true;
-        this.mensaje = respuesta.motivo;
+        alert('No se creo el Archivo 2');
         return;
       }
 
-      //Todo esta bien, mandamos bandera:true a html
-      this.banderaConfig = true;
-      this.mensaje = respuesta.motivo; //motivo viene del backend (Correcto o no)
-      this.cookieService.set(
-        'usuario',
-        respuesta.usuarioEncontrado.correoElectronico
-      );
+      alert(respuesta.motivo);
+      this.navegarService.navegar(`home/${this.idCarpeta}`);
     });
   }
 }
