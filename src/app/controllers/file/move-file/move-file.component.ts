@@ -42,7 +42,7 @@ export class MoveFileComponent {
   }
 
   public mostrarPath(objeto: any) {
-    this.fileService.mostrarPathDeArchivo(objeto._id).subscribe((res: any) => {
+    this.dirService.mostrarPathDeCarpeta(objeto._id).subscribe((res: any) => {
       objeto.path = res;
     });
   }
@@ -55,6 +55,8 @@ export class MoveFileComponent {
       for (let carpeta of this.carpetas) {
         this.mostrarPath(carpeta);
       }
+
+      console.log(this.carpetas)
 
       //al final mostrar la raiz
       this.carpetas.push({ _id: 'raiz', path: 'raiz' });
