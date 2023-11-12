@@ -37,7 +37,7 @@ export class FileCardComponent implements OnInit {
   }
 
   public toCompartir(){
-    this.navegarService.navegar(`compartirArchivo/${this.infoCarta._id}/${this.infoCarta.carpeta_raiz_id}`);
+    this.navigateService.navegar(`compartirArchivo/${this.infoCarta._id}/${this.infoCarta.carpeta_raiz_id}`);
   }
 
   public copiarArchivo() {
