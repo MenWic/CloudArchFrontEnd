@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap);
+
 .tablero{
     padding: 50px;
     width: 100%;
@@ -9,6 +11,14 @@
     padding-right: 20px;
 }
 
+.ruta{
+    font-family: "Poppins", sans-serif;
+    padding-top: 50px;
+    padding-left: 100px;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(76, 68, 182, 0.808);
+}
 .button-bar{
     width: 100%;
     display: flex;
