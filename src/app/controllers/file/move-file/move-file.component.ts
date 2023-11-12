@@ -27,7 +27,7 @@ export class MoveFileComponent {
   ) {}
 
   ngOnInit() {
-    this.idArchivo = this.ruta.snapshot.params['idArchivoActual'];
+    this.idArchivo = this.ruta.snapshot.params['idCarpetaActual'];
     this.llenarComboCarpetas();
     this.cargarArchivo();
   }
