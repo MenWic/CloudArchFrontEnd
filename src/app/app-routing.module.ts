@@ -36,8 +36,13 @@ const routes: Routes = [
       { path: 'home/:idCarpeta', component: AdminHomeComponent }, //Archivos y Carpetas en raiz
       { path: 'crearArchivo/:idCarpetaPadre', component: CreateFileComponent }, //Form de creacion
       { path: 'editarArchivo/:idArchivo', component: EditFileComponent }, //Form de edicion
+<<<<<<< HEAD
       { path: 'moverArchivo/:idCarpetaActual', component: MoveFileComponent }, //Form para movimiento
       { path: 'compartirArchivo/:idArchivo', component: ShareFileComponent }, //Form para compartir
+=======
+      { path: 'moverArchivo/:idRutaActual', component: MoveFileComponent }, //Form para movimiento
+      { path: 'compartirArchivo/:idArchivo/:idCarpeta', component: ShareFileComponent }, //Form para compartir
+>>>>>>> 42c5db8c08b50abac044d60f99d2a6f292a1dbd1
       { path: 'verArchivo/:idArchivo/:modoVista', component: ShowFileContentComponent },
       { path: 'crearCarpeta/:idCarpetaPadre', component: CreateDirComponent }, //Form de creacion
       { path: 'moverCarpeta/:idCarpetaActual', component: MoveDirComponent }, //Form para movimiento
