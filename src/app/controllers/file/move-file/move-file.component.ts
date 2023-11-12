@@ -23,7 +23,7 @@ export class MoveFileComponent {
     private fileService: FileServiceService,
     private cookiesService: CookieService,
     private ruta: ActivatedRoute,
-    private navegarServicee: NavegarService
+    private navegarService: NavegarService
   ) {}
 
   ngOnInit() {
@@ -72,10 +72,10 @@ export class MoveFileComponent {
       destino_id: this.carpetaOp,
     };
 
-    this.dirService.moverCarpeta(update).subscribe((res: any) => {
+    this.fileService.moverArchivo(update).subscribe((res: any) => {
       alert(res.motivo);
       if (res.respuesta === true) {
-        this.navegarServicee.navegar(`home/${this.carpetaOp}`);
+        this.navegarService.navegar(`home/${this.carpetaOp}`);
       }
     });
   }

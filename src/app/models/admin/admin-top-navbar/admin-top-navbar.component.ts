@@ -16,6 +16,7 @@ export class AdminTopNavbarComponent {
 
   public logout() {
     this.cookieService.delete('usuario');
+    this.cookieService.delete('rol');
     this.router.navigate(['login']);
   }
 }
