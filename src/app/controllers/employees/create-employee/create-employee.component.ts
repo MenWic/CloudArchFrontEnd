@@ -42,8 +42,8 @@ export class CreateEmployeeComponent {
         alert('No se creo el Empleado');
         return;
       }
-      alert(respuesta.motivo);
-      this.navegarService.navegar('home');
+      alert("Se creo el Usuario");
+      this.navegarService.navegar('home/raiz');
     });
   }
 }

@@ -5,21 +5,21 @@
         <form action="" method="post">
             <div class="field input">
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" autocomplete="off" required>
+                <input type="text" name="username" id="username" autocomplete="off" required [(ngModel)]="correo">
             </div>
             <div class="field input">
                 <label for="email">Password</label>
-                <input type="text" name="email" id="email" autocomplete="off" required>
+                <input type="text" name="email" id="email" autocomplete="off" required [(ngModel)]="password">
             </div>
             <div class="field input">
-                <label for="format">Rol</label>
+                <label for="rol">Rol</label>
                 <select type="text" name="rol" id="rol" autocomplete="off" required [(ngModel)]="rol">
                     <option value="Administrador">Administrador</option>
                     <option value="Empleado">Empleado</option>
                 </select>
             </div>
             <div class="field">
-                <input type="submit" class="btn" name="submit" value="Crear" required>
+                <input (click)="crearEmpleado()" type="submit" class="btn" name="submit" value="Crear">
             </div>
         </form>
     </div>

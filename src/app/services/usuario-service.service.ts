@@ -13,6 +13,6 @@ export class UsuarioServiceService {
   }
 
   public crearEmpleado(usuario: any): Observable<any> {
-    return this.http.post(`${this.url}/crearEmpleado`, usuario);
+    return this.http.post(`${this.url}/crearUsuario`, usuario);
   }
 }
