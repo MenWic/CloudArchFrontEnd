@@ -48,4 +48,11 @@ export class FileServiceService {
       params: params,
     });
   }
+
+  public mostrarPathDeArchivo(idCarpeta: any): Observable<any> {
+    let params = new HttpParams().set('id', idCarpeta); 
+    return this.http.get(`${this.url}/mostrarPathDeArchivo`, {
+      params: params,
+    });
+  }
 }

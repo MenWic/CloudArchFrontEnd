@@ -24,37 +24,43 @@ export class FileCardComponent implements OnInit {
   //Constructor
   constructor(
     private fileService: FileServiceService,
-    private navegarService: NavegarService
+    private navigateService: NavegarService
   ) {}
 
   //Funciones
   public irAVerArchivo() {
-    this.navegarService.navegar(`verArchivo/${this.infoCarta._id}/noTrash`);
+    this.navigateService.navegar(`verArchivo/${this.infoCarta._id}/noTrash`);
   }
 
   public editarArchivo() {
-    this.navegarService.navegar(`editarArchivo/${this.infoCarta._id}`);
+    this.navigateService.navegar(`editarArchivo/${this.infoCarta._id}`);
   }
 
   public copiarArchivo() {
-    this.fileService.copiarArchivo(this.infoCarta).subscribe((respuesta: any) => {
-      if (respuesta.respuesta) {
-      } else {
-        alert(respuesta.motivo);
-      }
-      this.refreshEvent.emit();
-    });
-
+    this.fileService
+      .copiarArchivo(this.infoCarta)
+      .subscribe((respuesta: any) => {
+        if (respuesta.respuesta) {
+        } else {
+          alert(respuesta.motivo);
+        }
+        this.refreshEvent.emit();
+      });
   }
 
   public eliminarArchivo() {
-    this.fileService.eliminarArchivo(this.infoCarta).subscribe((respuesta: any) => {
-      if (respuesta.respuesta) {
-      } else {
-        alert(respuesta.motivo);
-      }
-      this.refreshEvent.emit();
-    });
-    
+    this.fileService
+      .eliminarArchivo(this.infoCarta)
+      .subscribe((respuesta: any) => {
+        if (respuesta.respuesta) {
+        } else {
+          alert(respuesta.motivo);
+        }
+        this.refreshEvent.emit();
+      });
+  }
+
+  public moverArchivo() {
+    this.navigateService.navegar(`moverArchivo/${this.infoCarta._id}`);
   }
 }

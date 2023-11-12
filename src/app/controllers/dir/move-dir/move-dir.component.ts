@@ -14,6 +14,8 @@ export class MoveDirComponent implements OnInit {
   private idCarpeta: any;
   public carpetaActual: any;
   public carptaOp: any;
+
+  //Constructor
   constructor(
     private dirService: DirServiceService,
     private cookiesService: CookieService,
@@ -40,6 +42,7 @@ export class MoveDirComponent implements OnInit {
       objeto.path = res;
     });
   }
+  
   public llenarComboCarpetas() {
     let usuario = this.cookiesService.get('usuario');
     this.dirService.mostrarCarpetasDeUsuario(usuario).subscribe((res: any) => {

@@ -1,23 +1,20 @@
 <div class="container">
     <div class="box form-box">
         <header>Mover Archivo</header>
-        
-        <form action="" method="post">
+
+        <form (ngSubmit)="moverArchivo()" method="post">
             <div class="field input">
-                <label for="name">Archivo</label>
-                <input type="text" value="Example.txt" name="name" id="name" readonly>
-            </div>
-            <div class="field input">
-                <label for="directorie">Selecciona Carpeta</label>
-                <select type="text" name="dir" id="dir" required>
-                    <!getDirs();>
-                    <option value="value1">Root</option>
+                <label for="file">Selecciona Carpeta a la cual mover</label>
+                <select type="text" name="file" id="files" autocomplete="off" required [(ngModel)]="carpetaOp">
+                    <option *ngFor="let carpeta of carpetas" [value]="carpeta._id">
+                        {{carpeta.path}}
+                    </option>
                 </select>
             </div>
+
             <div class="field">
-                <input type="submit" class="btn" name="submit" value="Mover" required>
+                <input type="submit" class="btn" name="submit" value="Mover">
             </div>
         </form>
-
     </div>
 </div>

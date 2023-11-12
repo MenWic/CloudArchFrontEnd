@@ -39,7 +39,6 @@ export class DirCardComponent {
         }
         this.refreshEvent.emit();
       });
-    
   }
 
   public eliminarCarpeta() {
