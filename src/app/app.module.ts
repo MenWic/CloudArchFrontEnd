@@ -35,7 +35,7 @@ import { ChangePasswordComponent } from './controllers/profile/change-password/c
 import { SharedHomeComponent } from './controllers/shared/shared-home/shared-home.component';
 import { HomeOptionsComponent } from './models/objects/home-options/home-options.component';
 import { ShowFileContentComponent } from './controllers/file/show-file-content/show-file-content.component';
-import { EmployeeServiceComponent } from './services/employee-service/employee-service.component';
+import { CreateEmployeeComponent } from './controllers/employees/create-employee/create-employee.component';
 
 @NgModule({
   declarations: [
@@ -64,11 +64,11 @@ import { EmployeeServiceComponent } from './services/employee-service/employee-s
     MoveDirComponent,
 
     TrashHomeComponent,
+    CreateEmployeeComponent,
     ChangePasswordComponent,
     SharedHomeComponent,
     HomeOptionsComponent,
-    ShowFileContentComponent,
-    EmployeeServiceComponent,
+    ShowFileContentComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [CookieService],

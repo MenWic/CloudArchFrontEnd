@@ -1,6 +1,7 @@
 <div class="container">
     <div class="box form-box">
         <header>Nuevo Empleado</header>
+
         <form action="" method="post">
             <div class="field input">
                 <label for="username">Username</label>
@@ -9,6 +10,13 @@
             <div class="field input">
                 <label for="email">Password</label>
                 <input type="text" name="email" id="email" autocomplete="off" required>
+            </div>
+            <div class="field input">
+                <label for="format">Rol</label>
+                <select type="text" name="rol" id="rol" autocomplete="off" required [(ngModel)]="rol">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Empleado">Empleado</option>
+                </select>
             </div>
             <div class="field">
                 <input type="submit" class="btn" name="submit" value="Crear" required>

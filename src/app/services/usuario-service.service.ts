@@ -11,4 +11,8 @@ export class UsuarioServiceService {
   public login(usuario: any): Observable<any> {
     return this.http.post(`${this.url}/login`, usuario);
   }
+
+  public crearEmpleado(usuario: any): Observable<any> {
+    return this.http.post(`${this.url}/crearEmpleado`, usuario);
+  }
 }
