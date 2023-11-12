@@ -36,6 +36,10 @@ export class FileCardComponent implements OnInit {
     this.navegarService.navegar(`editarArchivo/${this.infoCarta._id}`);
   }
 
+  public toCompartir(){
+    this.navegarService.navegar(`compartirArchivo/${this.infoCarta._id}/${this.infoCarta.carpeta_raiz_id}`);
+  }
+
   public copiarArchivo() {
     this.fileService.copiarArchivo(this.infoCarta).subscribe((respuesta: any) => {
       if (respuesta.respuesta) {
