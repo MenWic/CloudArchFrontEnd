@@ -24,14 +24,14 @@ export class CreateEmployeeComponent {
 
   //Funcion
   public crearEmpleado() {
-    //console.log(this.idCarpeta);
+
     let employee = new Object({
       correoElectronico: this.correo,
       password: this.password,
       rol: this.rol,
     });
 
-    this.usuarioService.crearEmpleado(employee).subscribe((respuesta: any) => {
+    this.usuarioService.crearUsuario(employee).subscribe((respuesta: any) => {
       //Evaluamos si el objeto respuesta es null
       if (respuesta === null) {
         alert('No se creo el Empleado');

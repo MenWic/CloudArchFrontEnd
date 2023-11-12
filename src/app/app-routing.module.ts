@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'verArchivo/:idArchivo/:modoVista', component: ShowFileContentComponent },
       { path: 'crearCarpeta/:idCarpetaPadre', component: CreateDirComponent }, //Form de creacion
       { path: 'moverCarpeta/:idCarpetaActual', component: MoveDirComponent }, //Form para movimiento
-      { path: 'cambiarPassword', component: ChangePasswordComponent }, //Form patra actualizacion
+      { path: 'editarPassword', component: ChangePasswordComponent }, //Form patra actualizacion
       { path: 'compartidos', component: SharedHomeComponent }, //Archivos y Carpetas recibidos
       { path: 'crearEmpleado', component: CreateEmployeeComponent }, //Form de creacion
       { path: 'papelera/:idCarpeta', component: TrashHomeComponent }, //Archivos y Carpetas eliminados
