@@ -14,7 +14,7 @@ export class AdminHomeComponent implements OnInit {
   //private idCarpetaPadre: string = '';
 
   public carpetaActual: any;
-
+  public path: any;
   public carpetasDeCarpeta: any[] = [];
   public archivosDeCarpeta: any[] = [];
 
@@ -33,14 +33,24 @@ export class AdminHomeComponent implements OnInit {
     this.mostrarArchivosYCarpetas(); //mostrar los archivos y las carpetas de la carpeta padre
   }
 
-  public cargarCarpeta(){
-    if (this.idCarpeta  !== "raiz") {
+  public cargarCarpeta() {
+    if (this.idCarpeta !== 'raiz') {
       this.dirService
         .traerCarpetaPorId(this.idCarpeta)
         .subscribe((carpeta: any) => {
           this.carpetaActual = carpeta;
+          this.mostrarPath(carpeta);      
         });
+    }else{
+      this.path = "raiz"
     }
+  }
+
+  public mostrarPath(objeto: any) {
+    this.dirService.mostrarPathDeCarpeta(objeto._id).subscribe((res: any) => {
+      this.path = res.replaceAll('/', ' > '); 
+      console.log(this.path)
+    });
   }
 
   public mostrarArchivosYCarpetas() {
