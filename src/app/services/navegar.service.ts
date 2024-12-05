@@ -6,7 +6,10 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root',
 })
 export class NavegarService {
-  constructor(private router: Router, private coockieService: CookieService) {}
+  constructor(
+    private router: Router, 
+    private coockieService: CookieService
+    ) {}
 
   //Funciones
   public navegar(ruta: string) {

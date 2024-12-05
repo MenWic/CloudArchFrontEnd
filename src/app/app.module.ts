@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeTopNavbarComponent } from './models/employee/employee-top-navbar/employee-top-navbar.component';
 import { AdminTopNavbarComponent } from './models/admin/admin-top-navbar/admin-top-navbar.component';
 import { AdminHomeComponent } from './models/admin/admin-home/admin-home.component';
-import { EmployeeHomeComponent } from './models/employee/employee-home/employee-home.component';
 import { EmployeeViewComponent } from './models/employee/employee-view/employee-view.component';
 import { AdminViewComponent } from './models/admin/admin-view/admin-view.component';
 
@@ -44,7 +43,6 @@ import { CreateEmployeeComponent } from './controllers/employees/create-employee
     EmployeeTopNavbarComponent,
     AdminTopNavbarComponent,
     AdminHomeComponent,
-    EmployeeHomeComponent,
     EmployeeViewComponent,
     AdminViewComponent,
 

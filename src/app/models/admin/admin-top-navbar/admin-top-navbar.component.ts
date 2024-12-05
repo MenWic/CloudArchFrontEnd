@@ -14,6 +14,7 @@ export class AdminTopNavbarComponent {
     private cookieService: CookieService
     ) {}
 
+    //metodo
   public logout() {
     this.cookieService.delete('usuario');
     this.cookieService.delete('rol');

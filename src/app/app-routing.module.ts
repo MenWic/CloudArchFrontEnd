@@ -47,6 +47,22 @@ const routes: Routes = [
       { path: 'papelera/:idCarpeta', component: TrashHomeComponent }, //Archivos y Carpetas eliminados
     ],
   },
+  {
+    path: 'employeeMenu',
+    component: EmployeeViewComponent,
+    children: [
+      { path: 'home/:idCarpeta', component: AdminHomeComponent }, //Archivos y Carpetas en raiz
+      { path: 'crearArchivo/:idCarpetaPadre', component: CreateFileComponent }, //Form de creacion
+      { path: 'editarArchivo/:idArchivo', component: EditFileComponent }, //Form de edicion
+      { path: 'moverArchivo/:idCarpetaActual', component: MoveFileComponent }, //Form para movimiento
+      { path: 'compartirArchivo/:idArchivo/:idCarpeta', component: ShareFileComponent },
+      { path: 'verArchivo/:idArchivo/:modoVista', component: ShowFileContentComponent },
+      { path: 'crearCarpeta/:idCarpetaPadre', component: CreateDirComponent }, //Form de creacion
+      { path: 'moverCarpeta/:idCarpetaActual', component: MoveDirComponent }, //Form para movimiento
+      { path: 'editarPassword', component: ChangePasswordComponent }, //Form patra actualizacion
+      { path: 'compartidos', component: SharedHomeComponent }, //Archivos y Carpetas recibidos
+    ],
+  },
 ];
 
 @NgModule({
